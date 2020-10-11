@@ -1,1 +1,2 @@
-# TAREA6_GRUPO_1_LAB4
+Listo Nico el repo para el TP6!
+Saludos!
