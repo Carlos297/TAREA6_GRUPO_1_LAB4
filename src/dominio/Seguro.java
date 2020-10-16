@@ -4,7 +4,7 @@ public class Seguro {
 
 	private int IdSeguro;
 	private String Descripcion;
-	private int IdTipo;
+	private TipoSeguro tipoSeguro;
 	private double CostoContratacion;
 	private double CostoAsegurado;
 	
@@ -12,60 +12,72 @@ public class Seguro {
 		
 	}
 	
-	public Seguro(int idSeguro, String descripcion, int idTipo, double costoContratacion, double costoAsegurado) {
+
+	public Seguro(int idSeguro, String descripcion, TipoSeguro tipoSeguro, double costoContratacion,
+			double costoAsegurado) {
 		super();
-		this.IdSeguro=idSeguro;
-		this.Descripcion=descripcion;
-		this.IdTipo=idTipo;
-		this.CostoContratacion=costoContratacion;
-		this.CostoAsegurado=costoAsegurado;
-		
-		
+		IdSeguro = idSeguro;
+		Descripcion = descripcion;
+		this.tipoSeguro = tipoSeguro;
+		CostoContratacion = costoContratacion;
+		CostoAsegurado = costoAsegurado;
 	}
+
+
 
 	public int getIdSeguro() {
 		return IdSeguro;
 	}
 
+
 	public void setIdSeguro(int idSeguro) {
 		IdSeguro = idSeguro;
 	}
+
 
 	public String getDescripcion() {
 		return Descripcion;
 	}
 
+
 	public void setDescripcion(String descripcion) {
 		Descripcion = descripcion;
 	}
 
-	public int getIdTipo() {
-		return IdTipo;
+
+	public TipoSeguro getTipoSeguro() {
+		return tipoSeguro;
 	}
 
-	public void setIdTipo(int idTipo) {
-		IdTipo = idTipo;
+
+	public void setTipoSeguro(TipoSeguro tipoSeguro) {
+		this.tipoSeguro = tipoSeguro;
 	}
+
 
 	public double getCostoContratacion() {
 		return CostoContratacion;
 	}
 
+
 	public void setCostoContratacion(double costoContratacion) {
 		CostoContratacion = costoContratacion;
 	}
+
 
 	public double getCostoAsegurado() {
 		return CostoAsegurado;
 	}
 
+
 	public void setCostoAsegurado(double costoAsegurado) {
 		CostoAsegurado = costoAsegurado;
 	}
 
+
 	@Override
 	public String toString() {
-		return "Seguro [IdSeguro=" + IdSeguro + ", Descripcion=" + Descripcion + ", IdTipo=" + IdTipo
+		return "Seguro [IdSeguro=" + IdSeguro + ", Descripcion=" + Descripcion + ", IdTipo=" + tipoSeguro
 				+ ", CostoContratacion=" + CostoContratacion + ", CostoAsegurado=" + CostoAsegurado + "]";
 	}
 	

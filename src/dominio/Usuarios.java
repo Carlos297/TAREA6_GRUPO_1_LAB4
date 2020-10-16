@@ -4,7 +4,7 @@ public class Usuarios
 {
 	private String nombreUsuario;
 	private String pass;
-	private TipoUsuario tipoUser;
+	private int tipoUser;
 	private int dni;
 	private String nombre;
 	private String apellido;
@@ -14,8 +14,9 @@ public class Usuarios
 		
 	}
 	
-	public Usuarios(String nombreUsuario, String pass, TipoUsuario tipoUser, int dni, String nombre, String apellido) 
-	{
+	
+
+	public Usuarios(String nombreUsuario, String pass, int tipoUser, int dni, String nombre, String apellido) {
 		super();
 		this.nombreUsuario = nombreUsuario;
 		this.pass = pass;
@@ -24,6 +25,8 @@ public class Usuarios
 		this.nombre = nombre;
 		this.apellido = apellido;
 	}
+
+
 
 	public String getNombreUsuario() 
 	{
@@ -45,12 +48,12 @@ public class Usuarios
 		this.pass = pass;
 	}
 
-	public TipoUsuario getTipoUser()
+	public int getTipoUser()
 	{
 		return tipoUser;
 	}
 
-	public void setTipoUser(TipoUsuario tipoUser) 
+	public void setTipoUser(int tipoUser) 
 	{
 		this.tipoUser = tipoUser;
 	}
