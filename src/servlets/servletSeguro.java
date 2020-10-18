@@ -1,6 +1,7 @@
 package servlets;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -33,15 +34,16 @@ public class servletSeguro extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		SeguroDAO seguroDAO = new SeguroDAO();
+		String valorSelect = "";
+		int filas = 0;
 		
 		if(request.getParameter("btnAceptar") != null)
 		{
-			String valorSelect = "";
-			int filas = 0;
+						
 			Seguro seguro = new Seguro();
 			if(request.getParameter("txtDescripcion") != "")
 				seguro.setDescripcion(request.getParameter("txtDescripcion"));
-			//Hay que modificarlo por ahora lo deje asi y se agrega 1 por default para todos los seguros que se agreguen
 			valorSelect = request.getParameter("tipoSeguro");
 			TipoSeguro tipoSeguro = new TipoSeguro();
 			tipoSeguro.setId(Integer.parseInt(valorSelect));
@@ -52,7 +54,7 @@ public class servletSeguro extends HttpServlet {
 			if(request.getParameter("txtCostoAsegurado") != "")
 				seguro.setCostoAsegurado(Double.parseDouble(request.getParameter("txtCostoAsegurado")));
 			
-			SeguroDAO seguroDAO = new SeguroDAO();
+			
 			
 			if(request.getParameter("txtDescripcion") != "" && request.getParameter("txtCostoContratacion") != "" && request.getParameter("txtCostoAsegurado") != "") 
 			{
@@ -69,10 +71,32 @@ public class servletSeguro extends HttpServlet {
 		}
 		
 		
-
+		if(request.getParameter("opc") != null) {
+			
+			ArrayList<Seguro> listaSeguro = seguroDAO.obtenerTodosLosSeguros();
+			
+			request.setAttribute("lista", listaSeguro);
+			
+			RequestDispatcher rd = request.getRequestDispatcher("/listarSeguros.jsp");  				  
+			rd.forward(request, response);
+			
+		}
 		
 		
-
+		if(request.getParameter("btnFiltrarSeguro") != null) {
+			
+			valorSelect = request.getParameter("busquedaTipoSeguro");
+			
+			ArrayList<Seguro> listaSeguro = seguroDAO.obtenerTodosLosSegurosFiltrados(Integer.parseInt(valorSelect));
+			
+			
+			request.setAttribute("listaFiltrada", listaSeguro);
+			
+			RequestDispatcher rd = request.getRequestDispatcher("/listarSeguros.jsp");  				  
+			rd.forward(request, response);
+			
+			
+		}
 		
 	}
 

@@ -73,6 +73,7 @@ public class SeguroDAO {
 				x.setDescripcion(resultSet.getString("descripcion"));
 				TipoSeguro tipoSeguro = new TipoSeguro();
 				tipoSeguro.setId(resultSet.getInt("idTipo"));
+				tipoSeguro.setDescripcion(resultSet.getString("descripcion"));
 				x.setTipoSeguro(tipoSeguro);
 				x.setCostoContratacion(resultSet.getDouble("costoContratacion"));
 				x.setCostoAsegurado(resultSet.getDouble("costoAsegurado"));
@@ -86,6 +87,50 @@ public class SeguroDAO {
 		}
 		return lSeguro;
 	}
+	
+	
+public ArrayList<Seguro> obtenerTodosLosSegurosFiltrados(int id) {
+		
+		ArrayList<Seguro> lSeguro = new ArrayList<Seguro>();
+		
+		Connection connection = null;
+		
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+			} catch (ClassNotFoundException e){
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+			}
+		
+		try {
+			
+			connection = DriverManager.getConnection(host+dbName,user,pass);
+			String query = "SELECT idSeguro, descripcion, idTipo, costoContratacion, costoAsegurado FROM seguros where idTipo="+id;
+			Statement statement = connection.createStatement();
+			ResultSet resultSet = statement.executeQuery(query);
+			
+			while(resultSet.next()) {
+				
+				Seguro x = new Seguro();
+				x.setIdSeguro(resultSet.getInt("idSeguro"));
+				x.setDescripcion(resultSet.getString("descripcion"));
+				TipoSeguro tipoSeguro = new TipoSeguro();
+				tipoSeguro.setId(resultSet.getInt("idTipo"));
+				tipoSeguro.setDescripcion(resultSet.getString("descripcion"));
+				x.setTipoSeguro(tipoSeguro);
+				x.setCostoContratacion(resultSet.getDouble("costoContratacion"));
+				x.setCostoAsegurado(resultSet.getDouble("costoAsegurado"));
+				lSeguro.add(x);
+				
+				
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return lSeguro;
+	}
+	
 	
 	
 }

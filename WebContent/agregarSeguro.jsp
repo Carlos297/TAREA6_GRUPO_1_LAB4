@@ -13,7 +13,7 @@
 	
 	<a href="inicio.jsp"> Inicio</a>
 	<a href="agregarSeguro.jsp"> Agregar seguro</a>
-	<a href="listarSeguros.jsp"> Listar seguros</a>
+	<a href="servletSeguro?opc=3"> Listar seguros</a>
 	
 	<h3>Agregar seguro</h3>
 	<form method="get" action="servletSeguro">
@@ -77,11 +77,12 @@ label{
 		
  %>
  <br>
+ 
  <%  if(filas == 1)
 		 { %> 
 			
 			Seguro agregado con exito
-		  
+			<%filas=0; %>		  
 		<% } %>
 	
 </body>

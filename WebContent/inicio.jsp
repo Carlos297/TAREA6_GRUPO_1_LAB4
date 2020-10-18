@@ -10,7 +10,7 @@
 
 	<a href="inicio.jsp"> Inicio</a>
 	<a href="agregarSeguro.jsp"> Agregar seguro</a>
-	<a href="listarSeguros.jsp"> Listar seguros</a>
+	<a href="servletSeguro?opc=3"> Listar seguros</a>
 
 	<h3> Soy la página de inicio</h3>
 

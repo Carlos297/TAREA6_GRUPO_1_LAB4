@@ -33,7 +33,7 @@ public class TipoSeguroDAO {
 		try {
 			
 			connection = DriverManager.getConnection(host+dbName,user,pass);
-			String query = "SELECT * FROM tiposeguros";
+			String query = "SELECT idTipo, descripcion FROM tiposeguros";
 			Statement statement = connection.createStatement();
 			ResultSet resultSet = statement.executeQuery(query);
 			
@@ -52,5 +52,7 @@ public class TipoSeguroDAO {
 		}
 		return lTipoSeguros;
 	}
+	
+	
 
 }
