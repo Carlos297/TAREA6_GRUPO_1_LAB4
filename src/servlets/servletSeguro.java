@@ -36,14 +36,17 @@ public class servletSeguro extends HttpServlet {
 		
 		if(request.getParameter("btnAceptar") != null)
 		{
+			String valorSelect = "";
 			int filas = 0;
 			Seguro seguro = new Seguro();
 			if(request.getParameter("txtDescripcion") != "")
 				seguro.setDescripcion(request.getParameter("txtDescripcion"));
 			//Hay que modificarlo por ahora lo deje asi y se agrega 1 por default para todos los seguros que se agreguen
+			valorSelect = request.getParameter("tipoSeguro");
 			TipoSeguro tipoSeguro = new TipoSeguro();
-			tipoSeguro.setId(1);
+			tipoSeguro.setId(Integer.parseInt(valorSelect));
 			seguro.setTipoSeguro(tipoSeguro);
+			
 			if(request.getParameter("txtCostoContratacion") != "")
 				seguro.setCostoContratacion(Double.parseDouble(request.getParameter("txtCostoContratacion")));
 			if(request.getParameter("txtCostoAsegurado") != "")

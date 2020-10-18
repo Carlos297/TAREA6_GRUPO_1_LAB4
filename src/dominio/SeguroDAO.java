@@ -46,7 +46,7 @@ public class SeguroDAO {
 		
 	}
 	
-	public ArrayList<Seguro> obtenerTodosLosTiposDeSeguros() {
+	public ArrayList<Seguro> obtenerTodosLosSeguros() {
 		
 		ArrayList<Seguro> lSeguro = new ArrayList<Seguro>();
 		
@@ -69,7 +69,7 @@ public class SeguroDAO {
 			while(resultSet.next()) {
 				
 				Seguro x = new Seguro();
-				x.setIdSeguro(resultSet.getInt("idTipo"));
+				x.setIdSeguro(resultSet.getInt("idSeguro"));
 				x.setDescripcion(resultSet.getString("descripcion"));
 				TipoSeguro tipoSeguro = new TipoSeguro();
 				tipoSeguro.setId(resultSet.getInt("idTipo"));
