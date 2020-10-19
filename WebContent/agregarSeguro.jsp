@@ -50,7 +50,7 @@ label{
 
 	<div><label>Id Seguro</label> <%=id+1 %>  	<br></div>
 	
-	<div><label>Descripcion</label> 	<input type="text" name="txtDescripcion" > <br></div>
+	<div><label>Descripcion</label> 	<input type="text" name="txtDescripcion"> <br></div>
 	
 	<div>	<label>Tipo de seguro</label> 
 	<select name="tipoSeguro">  
@@ -71,6 +71,8 @@ label{
 	<%
 	int filas = 0;
 	
+		
+
 	if(request.getAttribute("cantFilas") != null)
 		filas = Integer.parseInt(request.getAttribute("cantFilas").toString());
 		
@@ -84,6 +86,16 @@ label{
 			Seguro agregado con exito
 			<%filas=0; %>		  
 		<% } %>
+		
+		
+ <% if(filas == 10)
+ 	{ %>
+	
+	 Ingrese correctamente los campos <%filas=0; %>	
+	 <%
+	 }
+		
+	%>
 	
 </body>
 </html>

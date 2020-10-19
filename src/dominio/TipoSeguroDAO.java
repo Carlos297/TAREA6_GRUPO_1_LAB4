@@ -32,7 +32,7 @@ public class TipoSeguroDAO {
 		
 		try {
 			
-			connection = DriverManager.getConnection(host+dbName,user,pass);
+			connection = DriverManager.getConnection(host+dbName+"?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC",user,pass);
 			String query = "SELECT idTipo, descripcion FROM tiposeguros";
 			Statement statement = connection.createStatement();
 			ResultSet resultSet = statement.executeQuery(query);

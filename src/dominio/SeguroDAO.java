@@ -34,7 +34,7 @@ public class SeguroDAO {
 		
 		try {
 			
-			cn = DriverManager.getConnection(host+dbName,user,pass);
+			cn = DriverManager.getConnection(host+dbName+"?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC",user,pass);
 			Statement st = cn.createStatement();
 			filas = st.executeUpdate(query);
 			
@@ -61,7 +61,7 @@ public class SeguroDAO {
 		
 		try {
 			
-			connection = DriverManager.getConnection(host+dbName,user,pass);
+			connection = DriverManager.getConnection(host+dbName+"?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC",user,pass);
 			String query = "SELECT * FROM seguros";
 			Statement statement = connection.createStatement();
 			ResultSet resultSet = statement.executeQuery(query);
@@ -104,7 +104,7 @@ public ArrayList<Seguro> obtenerTodosLosSegurosFiltrados(int id) {
 		
 		try {
 			
-			connection = DriverManager.getConnection(host+dbName,user,pass);
+			connection = DriverManager.getConnection(host+dbName+"?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC",user,pass);
 			String query = "SELECT idSeguro, descripcion, idTipo, costoContratacion, costoAsegurado FROM seguros where idTipo="+id;
 			Statement statement = connection.createStatement();
 			ResultSet resultSet = statement.executeQuery(query);
